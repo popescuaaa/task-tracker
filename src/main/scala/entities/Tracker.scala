@@ -1,12 +1,12 @@
 package entities
 import scala.io.StdIn.readLine
-import entities.Database
-import entities.State
 
 /**
  * The main app class
+ * The task tracker has the input source decoupled from the logic.
+ *
  */
-class Tracker {
+class Tracker (inputSource: () => String) {
   private val database: Database = new Database()
 
   def run(): Unit = {
@@ -16,7 +16,7 @@ class Tracker {
     var isRunning = true
 
     while (isRunning) {
-      val input = readLine("tracker> ")
+      val input = inputSource()
 
       input.toLowerCase match {
         case "close" =>
