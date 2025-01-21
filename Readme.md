@@ -38,3 +38,7 @@ The main commands that the tracker should support are:
     ````
 
 
+## Further improvements
+
+- [ ] Fake a DB behaviour
+- [ ] Integrate SQLite

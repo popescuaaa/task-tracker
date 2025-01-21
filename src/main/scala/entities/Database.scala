@@ -1,5 +1,4 @@
 package entities
-import entities.Task
 import helpers.UUIDGenerator
 
 class Database {
@@ -18,11 +17,15 @@ class Database {
       }
    }
 
-   def deleteTask(name: String): Unit =
+   def deleteTask(name: String): Unit = {
+      // find the first one with the specified name
       storage.find(_.name == name).foreach(_.updateState(State.Deleted()))
+   }
 
-   def finishTask(name: String): Unit =
+   def finishTask(name: String): Unit = {
+      // find the first one with the specified name
       storage.find(_.name == name).foreach(_.updateState(State.Finished()))
+   }
 
    def getStorage: Array[Task] = storage
 }
