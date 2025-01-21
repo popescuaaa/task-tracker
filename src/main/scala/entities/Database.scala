@@ -12,7 +12,7 @@ class Database {
       if (storage.exists(_.name == name)) {
          println("There is a task with the same name! The operation is not possible.")
       } else {
-         storage :+ new Task(
+         storage = storage :+ new Task(
             name = name, description = description, deadline = deadline, uuid = uuid
          )
       }

@@ -1,5 +1,4 @@
 package entities
-import helpers.UUIDGenerator
 
 class Task(val name: String, val description: String, val deadline: Integer, val uuid: String) {
   var state: State = State.Active()

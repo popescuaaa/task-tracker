@@ -1,5 +1,6 @@
 import scala.io.StdIn.readLine
 import entities.Database
+import entities.State
 
 object Main {
   val database: Database = new Database()
@@ -26,7 +27,6 @@ object Main {
   private def handleTrackerCommand(commandLine: String): Unit = {
 
     val parts = commandLine.split("\\s+", 2) // Split into command and arguments
-    println(parts.mkString("Array(", ", ", ")"))
 
     parts match {
       case Array("add", args) => handleAddCommand(args)
@@ -44,19 +44,28 @@ object Main {
   private def handleDeleteCommand(args: String) = ???
 
   private def handleAddCommand(args: String): Unit = {
-    val params = args.split("\\s+", 3) // Split into up to 3 parts
+    val params = args.split("\\s+", 3)
 
     params match {
       case Array(taskName, description, deadline) =>
-        println(s"Adding task: Name = '$taskName', Description = '$description', Deadline = '$deadline'")
+        println(s"Adding task: Name = '$taskName', Description = '$description', Deadline = '$deadline'...")
+        // check if the deadline can be converted to int
+        try {
+          var converted = deadline.toInt
+        } catch {
+          case _: NumberFormatException =>
+            println(s"The string $deadline cannot be converted to integer.")
+            return
+        }
+
         database.addTask(name = taskName, description = description, deadline = deadline.toInt)
 
       case Array(taskName, description) =>
-        println(s"Adding task: Name = '$taskName', Description = '$description'")
+        println(s"Adding task: Name = '$taskName', Description = '$description'...")
         database.addTask(name = taskName, description = description, deadline = null)
 
       case Array(taskName) =>
-        println(s"Adding task: Name = '$taskName'")
+        println(s"Adding task: Name = '$taskName'...")
         database.addTask(name = taskName, description = "", deadline = null)
 
       case _ =>
@@ -66,7 +75,7 @@ object Main {
 
   private def handleListCommand(): Unit = {
     println("Listing all tasks...")
-    println(database.getStorage.mkString("Array(", ", ", ")"))
+    println(database.getStorage.filter(_.state == State.Active()).foreach(task => println(s"[ ] $task \n")))
   }
 
   private def displayHelp(): Unit = {
