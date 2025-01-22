@@ -4,9 +4,9 @@
 
 - [x] Setup 
 - [x] Define behaviour
-- [ ] Entities
+- [x] Entities
 - [ ] Libs + implementation
-- [ ] Bundle
+- [ ] Bundle (containerize)
 
 ## Desired behaviour
 
@@ -40,5 +40,5 @@ The main commands that the tracker should support are:
 
 ## Further improvements
 
-- [ ] Fake a DB behaviour
+- [x] Fake a DB behaviour
 - [ ] Integrate SQLite

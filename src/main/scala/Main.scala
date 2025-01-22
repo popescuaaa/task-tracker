@@ -3,7 +3,8 @@ import entities.Tracker
 object Main {
 
   def main(args: Array[String]): Unit = {
-    val tracker = new Tracker(() => scala.io.StdIn.readLine("tracker> "))
+    val inputSource = () => scala.io.StdIn.readLine("tracker> ")
+    val tracker = new Tracker(inputSource = inputSource)
     tracker.run()
   }
 
