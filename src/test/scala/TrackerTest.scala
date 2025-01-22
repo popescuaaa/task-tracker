@@ -13,16 +13,38 @@ class TrackerTest extends AnyFunSuite {
     )
     val mockInputSource = () => if (inputs.hasNext) inputs.next() else ""
     val tracker = new Tracker(mockInputSource)
+    tracker.run()
     val trackerDb: Array[Task] = tracker.dumpStorage
-    val expectedDb: Array[Task] = new Array[Task](3)
-    expectedDb :+ new Task(name = "task1", description = "description", deadline = 1, uuid = UUIDGenerator.generate())
-    expectedDb :+ new Task(name = "task1",
+    var expectedDb: Array[Task] = new Array[Task](0)
+
+    expectedDb = expectedDb :+ new Task(
+      name = "task1",
       description = "description",
       deadline = 1,
       uuid = UUIDGenerator.generate()
     )
+    expectedDb = expectedDb :+ new Task(
+      name = "task2",
+      description = "description",
+      deadline = null,
+      uuid = UUIDGenerator.generate()
+    )
+    expectedDb = expectedDb :+ new Task(
+      name = "task3",
+      description = "",
+      deadline = null,
+      uuid = UUIDGenerator.generate()
+    )
 
-
+    assert(
+      trackerDb
+        .map(task => (task.name, task.state, task.description, task.deadline))
+        .sameElements(
+          expectedDb.map(task =>
+            (task.name, task.state, task.description, task.deadline)
+          )
+        )
+    )
   }
 
   test("example test - string concatenation works") {
