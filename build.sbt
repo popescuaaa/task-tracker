@@ -4,6 +4,6 @@ ThisBuild / scalaVersion := "3.6.3"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "task-tracker-cli",
+    name := "task-tracker",
     libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.19" % Test
   )
