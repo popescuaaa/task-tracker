@@ -1,6 +1,8 @@
 # Task tracker cli
 
-### Things to cover
+## V1 
+
+### Things to cover - v1
 
 - [x] Setup 
 - [x] Define behaviour
@@ -8,7 +10,6 @@
 - [x] Fake a DB behaviour
 - [x] Libs + implementation
 - [x] tests (basic suite)
-- [ ] Bundle (containerize)
 
 ## Desired behaviour
 
@@ -40,6 +41,12 @@ The main commands that the tracker should support are:
     ````
 
 
-## Version 2
+## V2
+
+### Updates
 
 - [ ] Integrate SQLite
+   - [ ] Add the new task class
+   - [ ] Replicate commands from the V1
+- [ ] Create the dump possibility to a Markdown file
+- [ ] Make the app runnable in a docker like environment ~ bundle 
