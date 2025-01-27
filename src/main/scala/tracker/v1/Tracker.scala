@@ -1,4 +1,4 @@
-package entities
+package tracker.v1
 
 /** The main app class
   * The task tracker has the input source decoupled from the logic.

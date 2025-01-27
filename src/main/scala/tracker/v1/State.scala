@@ -1,5 +1,4 @@
-package entities
-
+package tracker.v1
 
 sealed trait State
 

@@ -1,4 +1,4 @@
-import entities.Tracker
+import tracker.v1.Tracker
 
 object Main {
 

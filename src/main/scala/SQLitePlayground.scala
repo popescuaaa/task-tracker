@@ -1,4 +1,3 @@
-import entities.State
 import slick.jdbc.SQLiteProfile.api._
 import scala.concurrent.Await
 import scala.concurrent.duration.DurationInt

@@ -1,4 +1,5 @@
-package entities
+package tracker.v1
+
 import helpers.UUIDGenerator
 
 class Database {

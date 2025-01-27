@@ -1,7 +1,8 @@
-import org.scalatest.funsuite.AnyFunSuite
-import entities.{Task, Tracker}
+package tracker.v1
+
 import helpers.UUIDGenerator
 import org.scalatest.BeforeAndAfterAll
+import org.scalatest.funsuite.AnyFunSuite
 
 import java.io.{ByteArrayOutputStream, PrintStream}
 
